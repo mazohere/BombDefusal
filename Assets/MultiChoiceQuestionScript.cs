@@ -17,18 +17,59 @@ public class MultiChoiceQuestionScript : MonoBehaviour
 
     public void FirstQuestion()
     {
+
         int correctAnswer = Random.Range(0, 3);
         print(correctAnswer);
 
-        int firstNumber = Random.Range(1, 13);
-        int secondNumber = Random.Range(1, 13);
-        string questionText = firstNumber + " * " + secondNumber;
+        //Based on what the correctAnswer variable is, the corresponding button gets assigned an atribute such as "correct", then
+            //I write code for the correct variable.
 
-        Answer(correctAnswer)_text.text = 
         
 
-        Question.text = questionText;
+        
 
+        int firstWrong = Random.Range(1, 100);
+        int secondWrong = Random.Range(1, 100);
+        int firstNumber = Random.Range(1, 13);
+        int secondNumber = Random.Range(1, 13);
+        int questionText = (firstNumber * secondNumber);
+        print(questionText);
+
+        if (firstWrong == questionText)
+        {
+            firstWrong = firstWrong - 1;
+        }
+
+        if (secondWrong == questionText)
+        {
+            secondWrong = secondWrong - 1;
+        }
+
+        if (correctAnswer == 0)
+        {
+            CorrectButton(Answer0_text, firstWrong, secondWrong, Answer1_text, Answer2_text, questionText);
+        } else if (correctAnswer == 1)
+        {
+            CorrectButton(Answer1_text, firstWrong, secondWrong, Answer2_text, Answer0_text, questionText);
+        }else if (correctAnswer == 2)
+        {
+            CorrectButton(Answer2_text, firstWrong, secondWrong, Answer1_text, Answer0_text, questionText);
+        }
+
+
+
+
+
+
+        Question.text = (firstNumber + " * " + secondNumber).ToString();
+
+    }
+
+    public void CorrectButton(Text buttonNumber, int firstNumber, int secondNumber, Text wrongButton1, Text wrongButton2, int questionText)
+    {
+        buttonNumber.text = (questionText).ToString();
+        wrongButton1.text = (firstNumber).ToString();
+        wrongButton2.text = (secondNumber).ToString();
     }
 
     private void Start()

@@ -1482,9 +1482,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Question: {fileID: 388893236}
-  Answer0: {fileID: 0}
-  Answer1: {fileID: 1084072167}
-  Answer2: {fileID: 407145257}
+  Answer0: {fileID: 1084072167}
+  Answer1: {fileID: 407145257}
+  Answer2: {fileID: 1737066247}
+  Answer0_text: {fileID: 993686614}
+  Answer1_text: {fileID: 165948522}
+  Answer2_text: {fileID: 57995806}
 --- !u!1 &634731532
 GameObject:
   m_ObjectHideFlags: 0
