@@ -14,11 +14,13 @@ public class MultiChoiceQuestionScript : MonoBehaviour
     public Text Answer0_text;
     public Text Answer1_text;
     public Text Answer2_text;
+    public int correctNumber = 0;
 
     public void FirstQuestion()
     {
 
         int correctAnswer = Random.Range(0, 3);
+        correctNumber = correctAnswer;
         print(correctAnswer);
 
         //Based on what the correctAnswer variable is, the corresponding button gets assigned an atribute such as "correct", then
@@ -81,6 +83,14 @@ public class MultiChoiceQuestionScript : MonoBehaviour
     public void OnAnswerClick(int buttonNumber)
     {
         print(buttonNumber);
-
+        if (buttonNumber == correctNumber)
+        {
+            print("right");
+            // right
+        } else
+        {
+            print("wrong");
+            // weromng
+        }
     }
 }
