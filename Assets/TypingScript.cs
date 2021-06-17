@@ -8,20 +8,24 @@ public class TypingScript : MonoBehaviour
     public Text questionText;
     public InputField answerField;
     public Button answerVerification;
-    public int correctAnswer;
+    public int correctAnswerScriptTwo;
 
     public void Question()
     {
-        int firstnumber = Random.Range(1, 13);
-        int secondnumber = Random.Range(1, 13);
-        correctAnswer = (firstnumber * secondnumber);
-        questionText.text = (firstnumber + " * " + secondnumber).ToString();
+        int firstnumberscripttwo = Random.Range(1, 13);
+        int secondnumberscrpittwo = Random.Range(1, 13);
+        correctAnswerScriptTwo = (firstnumberscripttwo * secondnumberscrpittwo);
+        print(correctAnswerScriptTwo);
+        questionText.text = (firstnumberscripttwo + " * " + secondnumberscrpittwo).ToString();
 
     }
 
     public void OnButtonClick()
     {
-        if (answerField.text == (correctAnswer).ToString())
+        print("answerField: " + answerField.text);
+        print("correctAnswer: " + correctAnswerScriptTwo.ToString());
+
+        if (answerField.text == correctAnswerScriptTwo.ToString())
         {
             print("correct");
         } else
