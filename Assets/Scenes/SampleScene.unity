@@ -1222,8 +1222,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 520815349}
+  - component: {fileID: 520815350}
   m_Layer: 0
-  m_Name: Dragging Question
+  m_Name: Button Select Question
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1256,6 +1257,30 @@ Transform:
   m_Father: {fileID: 1509993042}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &520815350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520815348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b336d8deef114b34da83614acedbe7f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Question1: {fileID: 1238845162}
+  Question2: {fileID: 68207108}
+  Question3: {fileID: 908920605}
+  Answer1: {fileID: 78041425}
+  Answer2: {fileID: 1879639030}
+  Answer3: {fileID: 114288111}
+  question1Button: {fileID: 783123492}
+  question2Button: {fileID: 565767560}
+  question3Button: {fileID: 782859714}
+  answer1Button: {fileID: 236735203}
+  answer2Button: {fileID: 65045785}
+  answer3Button: {fileID: 1539120378}
 --- !u!1 &535438702
 GameObject:
   m_ObjectHideFlags: 0
