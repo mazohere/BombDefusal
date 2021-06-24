@@ -2,60 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ButtonSelectScript : MonoBehaviour
 {
-    //public Text Question1;
-    //public Text Question2;
-    //public Text Question3;
-    //public Text Answer1;
-    //public Text Answer2;
-    //public Text Answer3;
-    //public Button question1Button;
-    //public Button question2Button;
-    //public Button question3Button;
-    //public Button answer1Button;
-    //public Button answer2Button;
-    //public Button answer3Button;
-
     public List<Button> questions;
     public List<Button> answers;
     private static System.Random rng = new System.Random();
-
-    //public void QuestionAssignment()
-    //{
-    //    //Q = Question; FN = first number; SN = second number; QT = question text; QA = question answer; Q_S = question _ select
-
-    //    int Q1FN = Random.Range(1, 13);
-    //    int Q1SN = Random.Range(1, 13);
-    //    int Q2FN = Random.Range(1, 13);
-    //    int Q2SN = Random.Range(1, 13);
-    //    int Q3FN = Random.Range(1, 13);
-    //    int Q3SN = Random.Range(1, 13);
-    //    string QT1 = (Q1FN + " * " + Q1SN);
-    //    string QT2 = Q2FN + " * " + Q2SN;
-    //    string QT3 = Q3FN + " * " + Q3SN;
-    //    int QA1 = Q1FN * Q1SN;
-    //    int QA2 = Q2FN * Q2SN;
-    //    int QA3 = Q3FN * Q3SN;
-    //    print(" this is for the button one: " + QT1);
-    //    Question1.text = QT1;
-    //    Question2.text = QT2;
-    //    Question3.text = QT3;
-    //    Answer1.text = QA1.ToString();
-    //    Answer2.text = QA2.ToString();
-    //    Answer3.text = QA3.ToString();
-
-    //    int Q1S = Random.Range(0, 3);
-    //    int Q2S = Random.Range(0, 3);
-    //    int Q3S = Random.Range(0, 3);
-
-    //    print("Q1S: " + Q1S);
-    //    print("Q2S: " + Q2S);
-    //    print("Q3S: " + Q3S);
-
-
-    //}
+    public List<int> intAnswers;
+    public int correctAnswer;
+    public List<int> answeryThings;
+    public int firstChilling;
+    public List<int> disabledLikeNoah;
 
     public void GenerateQuestions()
     {
@@ -65,12 +23,15 @@ public class ButtonSelectScript : MonoBehaviour
         {
             int num1 = Random.Range(1, 13);
             int num2 = Random.Range(1, 13);
-            questions[i].GetComponentInChildren<Text>().text = num1 + " x " + num2;
+            questions[i].GetComponentInChildren<Text>().text = num1 + " * " + num2;
             questions[i].name = (num1 * num2).ToString();
             actualAnswers.Add(num1 * num2);
+            intAnswers.Add(num1 * num2);
         }
 
         Shuffle(actualAnswers);
+        answeryThings = actualAnswers;
+
 
         for (int i = 0; i < answers.Count; i++)
         {
@@ -91,12 +52,105 @@ public class ButtonSelectScript : MonoBehaviour
         }
     }
 
+    public void OnButtonClick(int chilling)
+    {
+        print(chilling);
+        print(correctAnswer);
+        print(intAnswers);
+        //if the button pressed == question: grey out other questions; vice versa for answers
+        if (chilling == 0)
+        {
+            firstChilling = 0;
+            print(intAnswers[chilling]);
+            correctAnswer = intAnswers[chilling];
+            questions[1].interactable = false;
+            questions[2].interactable = false;
+        }
+        else if (chilling == 1)
+        {
+            firstChilling = 1;
+            correctAnswer = intAnswers[chilling];
+            questions[0].interactable = false;
+            questions[2].interactable = false;
+        }
+        else if (chilling == 2)
+        {
+            firstChilling = 2;
+            correctAnswer = intAnswers[chilling];
+            questions[0].interactable = false;
+            questions[1].interactable = false;
+        }
+        else if (chilling == 3)
+        {
+            if (answeryThings[chilling % 3] == correctAnswer)
+            {
+                print("correct (ButtonSelectScript1)");
+                questions[firstChilling].interactable = false;
+                disabledLikeNoah.Add(firstChilling);
+                
+            }
+            else
+            {
+                print("wrong");
+            }
+            questions[0].interactable = true;
+            questions[1].interactable = true;
+            questions[2].interactable = true;
+            for (int i = 0; i < disabledLikeNoah.Count; i++)
+            {
+                questions[disabledLikeNoah[i]].interactable = false;
+            }
+        }
+        else if (chilling == 4)
+        {
+            if (answeryThings[chilling % 3] == correctAnswer)
+            {
+                print("correct (ButtonSelectScript1)");
+                questions[firstChilling].interactable = false;
+                disabledLikeNoah.Add(firstChilling);
+                
+            }
+            else
+            {
+                print("wrong");
+            }
+            questions[0].interactable = true;
+            questions[1].interactable = true;
+            questions[2].interactable = true;
+            for (int i = 0; i < disabledLikeNoah.Count; i++)
+            {
+                questions[disabledLikeNoah[i]].interactable = false;
+            }
+        }
+        else if (chilling == 5)
+        {
+            if (answeryThings[chilling % 3] == correctAnswer)
+            {
+                print("correct (ButtonSelectScript1)");
+                questions[firstChilling].interactable = false;
+                disabledLikeNoah.Add(firstChilling);
+                
+            }
+            else
+            {
+                print("wrong");
+            }
+            questions[0].interactable = true;
+            questions[1].interactable = true;
+            questions[2].interactable = true;
+            for (int i = 0; i < disabledLikeNoah.Count; i++)
+            {
+                questions[disabledLikeNoah[i]].interactable = false;
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        //QuestionAssignment();
         GenerateQuestions();
-        print("gaming");
+        //OnButtonClick();
+       // print("gaming");
     }
 
     // Update is called once per frame
