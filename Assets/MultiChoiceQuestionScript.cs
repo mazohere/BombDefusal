@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class MultiChoiceQuestionScript : MonoBehaviour
 {
+    public bool condition1;
+    public bool condition2;
     public Text Question;
     public Button Answer0;
     public Button Answer1;
@@ -15,6 +17,33 @@ public class MultiChoiceQuestionScript : MonoBehaviour
     public Text Answer1_text;
     public Text Answer2_text;
     public int correctNumber = 0;
+    public List<int> firstNumber;
+    public static bool multiChoiceQuestionSuccess;
+
+    void Update()
+    {
+        GetComponent<TimestablesSelectScript>();
+
+        condition1 = TimestablesSelectScript.timestablesConfirmBool;
+
+        GetComponent<TimeSelectScript>();
+
+        condition2 = TimeSelectScript.timeConfirmationBool;
+
+        if (condition1 == true && condition2 == true)
+        {
+            GetComponent<TimestablesSelectScript>();
+
+            firstNumber = TimestablesSelectScript.timestablesChoice;
+
+
+            FirstQuestion();
+
+            this.enabled = false;
+           
+        }
+        
+    }
 
     public void FirstQuestion()
     {
@@ -24,17 +53,20 @@ public class MultiChoiceQuestionScript : MonoBehaviour
         print(correctAnswer);
 
         //Based on what the correctAnswer variable is, the corresponding button gets assigned an atribute such as "correct", then
-            //I write code for the correct variable.
+        //I write code for the correct variable.
 
-        
+        int scriptFirstNumber = firstNumber[Random.Range(0, firstNumber.Count)];
+        print(firstNumber[Random.Range(0, firstNumber.Count)]);
+        print(scriptFirstNumber);
 
-        
+
+
+
 
         int firstWrong = Random.Range(1, 100);
         int secondWrong = Random.Range(1, 100);
-        int firstNumber = Random.Range(1, 13);
         int secondNumber = Random.Range(1, 13);
-        int questionText = (firstNumber * secondNumber);
+        int questionText = (scriptFirstNumber * secondNumber);
         print(questionText);
 
         if (firstWrong == questionText)
@@ -63,28 +95,34 @@ public class MultiChoiceQuestionScript : MonoBehaviour
 
 
 
-        Question.text = (firstNumber + " * " + secondNumber).ToString();
-
+        Question.text = (scriptFirstNumber + " * " + secondNumber).ToString();
     }
 
-    public void CorrectButton(Text buttonNumber, int firstNumber, int secondNumber, Text wrongButton1, Text wrongButton2, int questionText)
+    public void CorrectButton(Text buttonNumber, int scriptFirstNumber, int secondNumber, Text wrongButton1, Text wrongButton2, int questionText)
     {
         buttonNumber.text = (questionText).ToString();
-        wrongButton1.text = (firstNumber).ToString();
+        wrongButton1.text = (scriptFirstNumber).ToString();
         wrongButton2.text = (secondNumber).ToString();
     }
 
+
     private void Start()
     {
-        FirstQuestion();
 
     }
 
     public void OnAnswerClick(int buttonNumber)
     {
+        multiChoiceQuestionSuccess = false;
+
+        Answer0.interactable = false;
+        Answer1.interactable = false;
+        Answer2.interactable = false;
+
         print(buttonNumber);
         if (buttonNumber == correctNumber)
         {
+            multiChoiceQuestionSuccess = true;
             print("right");
             // right
         } else
