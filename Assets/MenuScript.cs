@@ -72,8 +72,8 @@ public class MenuScript : MonoBehaviour
         Light2.SetActive(true);
         Light3.SetActive(true);
 
-        modual0Pick = 2;
-        modual1Pick = 2;
+        modual0Pick = Random.Range(0, 3);
+        modual1Pick = Random.Range(0, 3);
         modual2Pick = Random.Range(0, 3);
         modual3Pick = Random.Range(0, 3);
         print(modual0Pick);
@@ -271,7 +271,7 @@ public class MenuScript : MonoBehaviour
 
         if (condition1 == true && condition2 == true)
         {
-            print("IS THIS LOOPING IDK");
+            print("looping?");
             GameStartFunction();
             this.enabled = false;
         }

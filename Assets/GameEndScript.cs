@@ -25,6 +25,8 @@ public class GameEndScript : MonoBehaviour
     bool L2LoseCheck;
     bool L3LoseCheck;
 
+    public AudioClip[] gameEndSound;
+
 
     void GameSuccessFunction()
     {
@@ -35,6 +37,8 @@ public class GameEndScript : MonoBehaviour
 
         success.SetActive(true);
         successSubtitle.SetActive(true);
+        GetComponent<AudioSource>().clip = gameEndSound[0];
+        GetComponent<AudioSource>().Play();
 
 
     }
@@ -48,6 +52,8 @@ public class GameEndScript : MonoBehaviour
 
         fail.SetActive(true);
         failSubtitle.SetActive(true);
+        GetComponent<AudioSource>().clip = gameEndSound[1];
+        GetComponent<AudioSource>().Play();
 
 
     }

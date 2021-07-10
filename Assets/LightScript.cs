@@ -51,6 +51,7 @@ public class LightScript : MonoBehaviour
 
 
 
+
     void LightActivation()
     {
         GetComponent<MenuScript>();
@@ -102,6 +103,7 @@ public class LightScript : MonoBehaviour
                 if (multiResult == true)
                 {
                     Light.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L0Win = true;
                 }
                 else if (multiResult == false)
@@ -118,6 +120,7 @@ public class LightScript : MonoBehaviour
                 if (typeResult == true)
                 {
                     Light.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L0Win = true;
                 }
                 else if (typeResult == false)
@@ -134,6 +137,7 @@ public class LightScript : MonoBehaviour
                 if (buttonResult == true)
                 {
                     Light.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L0Win = true;
                 }
                 else if (buttonFail == true)
@@ -151,6 +155,7 @@ public class LightScript : MonoBehaviour
                 if (multiResult == true)
                 {
                     Light1.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L1Win = true;
                 }
                 else if (multiResult == false)
@@ -167,6 +172,7 @@ public class LightScript : MonoBehaviour
                 if (typeResult == true)
                 {
                     Light1.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L1Win = true;
                 }
                 else if (typeResult == false)
@@ -183,6 +189,7 @@ public class LightScript : MonoBehaviour
                 if (buttonResult == true)
                 {
                     Light1.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L1Win = true;
                 }
                 else if (buttonFail == true)
@@ -200,6 +207,7 @@ public class LightScript : MonoBehaviour
                 if (multiResult == true)
                 {
                     Light2.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L2Win = true;
                 }
                 else if (multiResult == false)
@@ -216,6 +224,7 @@ public class LightScript : MonoBehaviour
                 if (typeResult == true)
                 {
                     Light2.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L2Win = true;
                 }
                 else if (typeResult == false)
@@ -232,6 +241,7 @@ public class LightScript : MonoBehaviour
                 if (buttonResult == true)
                 {
                     Light2.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L2Win = true;
                 }
                 else if (buttonFail == true)
@@ -249,6 +259,7 @@ public class LightScript : MonoBehaviour
                 if (multiResult == true)
                 {
                     Light3.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L3Win = true;
                 }
                 else if (multiResult == false)
@@ -265,6 +276,7 @@ public class LightScript : MonoBehaviour
                 if (typeResult == true)
                 {
                     Light3.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L3Win = true;
                 }
                 else if (typeResult == false)
@@ -281,6 +293,7 @@ public class LightScript : MonoBehaviour
                 if (buttonResult == true)
                 {
                     Light3.GetComponent<Image>().color = Color.green;
+                    GetComponent<AudioSource>().Play();
                     L3Win = true;
                 }
                 else if (buttonFail == true)
